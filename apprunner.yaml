@@ -1,14 +1,15 @@
 version: 1.0
 build:
   commands:
-    build:
+    pre-build:
       - npm install
+    build:
       - npm run build
   env:
     - name: NEXT_PUBLIC_BACKEND_URL
       value: https://vefcgkgnpx.us-east-1.awsapprunner.com
 run:
+  runtime: NODEJS_22
   command: npx next start -p 8080
   network:
     port: 8080
-    env: PORT
